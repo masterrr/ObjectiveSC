@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF03F2BF18677E7A001F2A01 /* ObjectiveSC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF5AE47B186770AA0034F6C1 /* ObjectiveSC.m */; };
 		AF5AE479186770850034F6C1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF5AE478186770850034F6C1 /* SystemConfiguration.framework */; };
-		AF5AE47C186770AA0034F6C1 /* ScutilWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF5AE47B186770AA0034F6C1 /* ScutilWrapper.m */; };
 		AFDE174F18676FB7004E5E33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFDE174E18676FB7004E5E33 /* Foundation.framework */; };
 		AFDE175218676FB7004E5E33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDE175118676FB7004E5E33 /* main.m */; };
 /* End PBXBuildFile section */
@@ -27,12 +27,12 @@
 
 /* Begin PBXFileReference section */
 		AF5AE478186770850034F6C1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		AF5AE47A186770AA0034F6C1 /* ScutilWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScutilWrapper.h; sourceTree = "<group>"; };
-		AF5AE47B186770AA0034F6C1 /* ScutilWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScutilWrapper.m; sourceTree = "<group>"; };
-		AFDE174B18676FB7004E5E33 /* scutil-wrapper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "scutil-wrapper"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF5AE47A186770AA0034F6C1 /* ObjectiveSC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveSC.h; sourceTree = "<group>"; };
+		AF5AE47B186770AA0034F6C1 /* ObjectiveSC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectiveSC.m; sourceTree = "<group>"; };
+		AFDE174B18676FB7004E5E33 /* ObjectiveSC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjectiveSC; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFDE174E18676FB7004E5E33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AFDE175118676FB7004E5E33 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AFDE175418676FB7004E5E33 /* scutil-wrapper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "scutil-wrapper-Prefix.pch"; sourceTree = "<group>"; };
+		AFDE175418676FB7004E5E33 /* ObjectiveSC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectiveSC-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 		AFDE174218676FB7004E5E33 = {
 			isa = PBXGroup;
 			children = (
-				AFDE175018676FB7004E5E33 /* scutil-wrapper */,
+				AFDE175018676FB7004E5E33 /* ObjectiveSC */,
 				AFDE174D18676FB7004E5E33 /* Frameworks */,
 				AFDE174C18676FB7004E5E33 /* Products */,
 			);
@@ -60,7 +60,7 @@
 		AFDE174C18676FB7004E5E33 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AFDE174B18676FB7004E5E33 /* scutil-wrapper */,
+				AFDE174B18676FB7004E5E33 /* ObjectiveSC */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,21 +74,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AFDE175018676FB7004E5E33 /* scutil-wrapper */ = {
+		AFDE175018676FB7004E5E33 /* ObjectiveSC */ = {
 			isa = PBXGroup;
 			children = (
 				AFDE175118676FB7004E5E33 /* main.m */,
 				AFDE175318676FB7004E5E33 /* Supporting Files */,
-				AF5AE47A186770AA0034F6C1 /* ScutilWrapper.h */,
-				AF5AE47B186770AA0034F6C1 /* ScutilWrapper.m */,
+				AF5AE47A186770AA0034F6C1 /* ObjectiveSC.h */,
+				AF5AE47B186770AA0034F6C1 /* ObjectiveSC.m */,
 			);
-			path = "scutil-wrapper";
+			path = ObjectiveSC;
 			sourceTree = "<group>";
 		};
 		AFDE175318676FB7004E5E33 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AFDE175418676FB7004E5E33 /* scutil-wrapper-Prefix.pch */,
+				AFDE175418676FB7004E5E33 /* ObjectiveSC-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -96,9 +96,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AFDE174A18676FB7004E5E33 /* scutil-wrapper */ = {
+		AFDE174A18676FB7004E5E33 /* ObjectiveSC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AFDE175918676FB7004E5E33 /* Build configuration list for PBXNativeTarget "scutil-wrapper" */;
+			buildConfigurationList = AFDE175918676FB7004E5E33 /* Build configuration list for PBXNativeTarget "ObjectiveSC" */;
 			buildPhases = (
 				AFDE174718676FB7004E5E33 /* Sources */,
 				AFDE174818676FB7004E5E33 /* Frameworks */,
@@ -108,9 +108,9 @@
 			);
 			dependencies = (
 			);
-			name = "scutil-wrapper";
+			name = ObjectiveSC;
 			productName = "scutil-wrapper";
-			productReference = AFDE174B18676FB7004E5E33 /* scutil-wrapper */;
+			productReference = AFDE174B18676FB7004E5E33 /* ObjectiveSC */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -122,7 +122,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Kurilo Dmitry";
 			};
-			buildConfigurationList = AFDE174618676FB7004E5E33 /* Build configuration list for PBXProject "scutil-wrapper" */;
+			buildConfigurationList = AFDE174618676FB7004E5E33 /* Build configuration list for PBXProject "ObjectiveSC" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -134,7 +134,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AFDE174A18676FB7004E5E33 /* scutil-wrapper */,
+				AFDE174A18676FB7004E5E33 /* ObjectiveSC */,
 			);
 		};
 /* End PBXProject section */
@@ -144,8 +144,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF03F2BF18677E7A001F2A01 /* ObjectiveSC.m in Sources */,
 				AFDE175218676FB7004E5E33 /* main.m in Sources */,
-				AF5AE47C186770AA0034F6C1 /* ScutilWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,8 +224,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "scutil-wrapper/scutil-wrapper-Prefix.pch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "ObjectiveSC/ObjectiveSC-Prefix.pch";
+				PRODUCT_NAME = ObjectiveSC;
 			};
 			name = Debug;
 		};
@@ -233,15 +233,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "scutil-wrapper/scutil-wrapper-Prefix.pch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "ObjectiveSC/ObjectiveSC-Prefix.pch";
+				PRODUCT_NAME = ObjectiveSC;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AFDE174618676FB7004E5E33 /* Build configuration list for PBXProject "scutil-wrapper" */ = {
+		AFDE174618676FB7004E5E33 /* Build configuration list for PBXProject "ObjectiveSC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AFDE175718676FB7004E5E33 /* Debug */,
@@ -250,7 +250,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AFDE175918676FB7004E5E33 /* Build configuration list for PBXNativeTarget "scutil-wrapper" */ = {
+		AFDE175918676FB7004E5E33 /* Build configuration list for PBXNativeTarget "ObjectiveSC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AFDE175A18676FB7004E5E33 /* Debug */,

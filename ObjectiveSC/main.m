@@ -6,16 +6,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ScutilWrapper.h"
+#import "ObjectiveSC.h"
 
 int main(int argc, const char * argv[])
 {
     @autoreleasepool {
-        NSLog(@"Computer name w/ local: %@", [ScutilWrapper computerLocalName]);
-        BOOL socksProxyEnabled = [ScutilWrapper isSocksProxyEnabled];
+        NSLog(@"Computer name w/ local: %@", [ObjectiveSC computerLocalName]);
+        BOOL socksProxyEnabled = [ObjectiveSC isSocksProxyEnabled];
         NSLog(@"Socks Proxy Enabled? %c", socksProxyEnabled ? 'Y' : 'N');
         if (socksProxyEnabled) {
-            NSLog(@"Socks host: %@, port: %ld", [ScutilWrapper socksProxyHost], [ScutilWrapper socksProxyPort]);
+            NSLog(@"Socks host: %@, port: %ld", [ObjectiveSC socksProxyHost], [ObjectiveSC socksProxyPort]);
         }
     }
     return 0;

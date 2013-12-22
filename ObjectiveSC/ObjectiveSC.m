@@ -5,9 +5,9 @@
 //  Created by Dmitry Kurilo on 12/22/13.
 //
 
-#import "ScutilWrapper.h"
+#import "ObjectiveSC.H"
 
-@implementation ScutilWrapper
+@implementation ObjectiveSC
 
 // Not exposed
 
@@ -37,7 +37,6 @@
 }
 
 +(NSString*)computerLocalName {
-    NSLog(@"%@", [self proxyConfiguration]);
     return [[self computerName] stringByAppendingString:@".local"];
 }
 

@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ScutilWrapper : NSObject
+@interface ObjectiveSC : NSObject
 
 // HOST
 +(NSString*)computerName;
