@@ -15,11 +15,15 @@
     return (__bridge NSDictionary*)SCDynamicStoreCopyProxies(NULL);
 }
 
-// ***
++(NSObject*)objectInProxyConfiguration:(NSString*)key {
+    return [[self proxyConfiguration] objectForKey:key];
+}
 
 +(NSString*)productName {
     return @"ScutilWrapper";
 }
+
+// ***
 
 #pragma mark Host
 
@@ -32,28 +36,35 @@
     return hostname;
 }
 
-#pragma mark SOCKS Proxy
-
 +(NSString*)computerLocalName {
+    NSLog(@"%@", [self proxyConfiguration]);
     return [[self computerName] stringByAppendingString:@".local"];
 }
 
-static NSString *socksProxyEnabledKey = @"SOCKSEnable";
+#pragma mark HTTPS Proxy
+
+static NSString *httpsProxyEnabledKey   = @"HTTPSEnable";
+static NSString *httpsProxyPortKey      = @"HTTPSPort";
+static NSString *httpsProxyHostKey      = @"HTTPSProxy";
+static NSString *httpsProxyUserKey      = @"HTTPSUser";
+
+#pragma mark SOCKS Proxy
+
+static NSString *socksProxyEnabledKey   = @"SOCKSEnable";
+static NSString *socksProxyPortKey      = @"SOCKSPort";
+static NSString *socksProxyHostKey      = @"SOCKSProxy";
+
 +(BOOL)isSocksProxyEnabled {
-    NSNumber *socksEnableObj = [[self proxyConfiguration] objectForKey:socksProxyEnabledKey];
+    NSNumber *socksEnableObj = (NSNumber*)[self objectInProxyConfiguration:socksProxyEnabledKey];
     return socksEnableObj != NULL && [socksEnableObj integerValue] == 1;
 }
 
-static NSString *socksProxyPortKey = @"SOCKSPort";
 +(long)socksProxyPort {
-    NSNumber *port = [[self proxyConfiguration] objectForKey:socksProxyPortKey];
-    return [port longValue];
+    return [(NSNumber*)[self objectInProxyConfiguration:socksProxyPortKey] longValue];
 }
 
-static NSString *socksProxyHostKey = @"SOCKSProxy";
 +(NSString*)socksProxyHost {
-    NSString *host = [[self proxyConfiguration] objectForKey:socksProxyPortKey];
-    return host;
+    return (NSString*)[self objectInProxyConfiguration:socksProxyPortKey];
 }
 
 
