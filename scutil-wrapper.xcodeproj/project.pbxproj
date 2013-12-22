@@ -1,0 +1,265 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF5AE479186770850034F6C1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF5AE478186770850034F6C1 /* SystemConfiguration.framework */; };
+		AF5AE47C186770AA0034F6C1 /* ScutilWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF5AE47B186770AA0034F6C1 /* ScutilWrapper.m */; };
+		AFDE174F18676FB7004E5E33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFDE174E18676FB7004E5E33 /* Foundation.framework */; };
+		AFDE175218676FB7004E5E33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDE175118676FB7004E5E33 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AFDE174918676FB7004E5E33 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AF5AE478186770850034F6C1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AF5AE47A186770AA0034F6C1 /* ScutilWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScutilWrapper.h; sourceTree = "<group>"; };
+		AF5AE47B186770AA0034F6C1 /* ScutilWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScutilWrapper.m; sourceTree = "<group>"; };
+		AFDE174B18676FB7004E5E33 /* scutil-wrapper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "scutil-wrapper"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDE174E18676FB7004E5E33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AFDE175118676FB7004E5E33 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AFDE175418676FB7004E5E33 /* scutil-wrapper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "scutil-wrapper-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AFDE174818676FB7004E5E33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF5AE479186770850034F6C1 /* SystemConfiguration.framework in Frameworks */,
+				AFDE174F18676FB7004E5E33 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AFDE174218676FB7004E5E33 = {
+			isa = PBXGroup;
+			children = (
+				AFDE175018676FB7004E5E33 /* scutil-wrapper */,
+				AFDE174D18676FB7004E5E33 /* Frameworks */,
+				AFDE174C18676FB7004E5E33 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AFDE174C18676FB7004E5E33 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AFDE174B18676FB7004E5E33 /* scutil-wrapper */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AFDE174D18676FB7004E5E33 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF5AE478186770850034F6C1 /* SystemConfiguration.framework */,
+				AFDE174E18676FB7004E5E33 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AFDE175018676FB7004E5E33 /* scutil-wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				AFDE175118676FB7004E5E33 /* main.m */,
+				AFDE175318676FB7004E5E33 /* Supporting Files */,
+				AF5AE47A186770AA0034F6C1 /* ScutilWrapper.h */,
+				AF5AE47B186770AA0034F6C1 /* ScutilWrapper.m */,
+			);
+			path = "scutil-wrapper";
+			sourceTree = "<group>";
+		};
+		AFDE175318676FB7004E5E33 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AFDE175418676FB7004E5E33 /* scutil-wrapper-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AFDE174A18676FB7004E5E33 /* scutil-wrapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFDE175918676FB7004E5E33 /* Build configuration list for PBXNativeTarget "scutil-wrapper" */;
+			buildPhases = (
+				AFDE174718676FB7004E5E33 /* Sources */,
+				AFDE174818676FB7004E5E33 /* Frameworks */,
+				AFDE174918676FB7004E5E33 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "scutil-wrapper";
+			productName = "scutil-wrapper";
+			productReference = AFDE174B18676FB7004E5E33 /* scutil-wrapper */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AFDE174318676FB7004E5E33 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Kurilo Dmitry";
+			};
+			buildConfigurationList = AFDE174618676FB7004E5E33 /* Build configuration list for PBXProject "scutil-wrapper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AFDE174218676FB7004E5E33;
+			productRefGroup = AFDE174C18676FB7004E5E33 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AFDE174A18676FB7004E5E33 /* scutil-wrapper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AFDE174718676FB7004E5E33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFDE175218676FB7004E5E33 /* main.m in Sources */,
+				AF5AE47C186770AA0034F6C1 /* ScutilWrapper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AFDE175718676FB7004E5E33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AFDE175818676FB7004E5E33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AFDE175A18676FB7004E5E33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "scutil-wrapper/scutil-wrapper-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AFDE175B18676FB7004E5E33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "scutil-wrapper/scutil-wrapper-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AFDE174618676FB7004E5E33 /* Build configuration list for PBXProject "scutil-wrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFDE175718676FB7004E5E33 /* Debug */,
+				AFDE175818676FB7004E5E33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFDE175918676FB7004E5E33 /* Build configuration list for PBXNativeTarget "scutil-wrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFDE175A18676FB7004E5E33 /* Debug */,
+				AFDE175B18676FB7004E5E33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AFDE174318676FB7004E5E33 /* Project object */;
+}
