@@ -5,11 +5,71 @@
 //  Created by Dmitry Kurilo on 12/22/13.
 //
 
+#pragma mark Proxies
+
+@protocol PProxyProvider
+@required
+-(NSString*)enabledKey;
+-(NSString*)portKey;
+-(NSString*)hostKey;
+-(NSString*)userKey;
+@end
+
+@interface HTTPProxy : NSObject <PProxyProvider> @end
+@implementation HTTPProxy
+-(NSString*)enabledKey  { return @"HTTPEnable"; }
+-(NSString*)portKey     { return @"HTTPPort"; }
+-(NSString*)hostKey     { return @"HTTPProxy"; }
+-(NSString*)userKey     { return @"HTTPUser"; }
+@end
+
+@interface HTTPSProxy : NSObject <PProxyProvider> @end
+@implementation HTTPSProxy
+-(NSString*)enabledKey  { return @"HTTPSEnable"; }
+-(NSString*)portKey     { return @"HTTPSPort"; }
+-(NSString*)hostKey     { return @"HTTPSProxy"; }
+-(NSString*)userKey     { return @"HTTPSUser"; }
+@end
+
+@interface SOCKSProxy : NSObject <PProxyProvider> @end
+@implementation SOCKSProxy
+-(NSString*)enabledKey  { return @"SOCKSEnable"; }
+-(NSString*)portKey     { return @"SOCKSPort"; }
+-(NSString*)hostKey     { return @"SOCKSProxy"; }
+-(NSString*)userKey     { return @"SOCKSUser"; }
+@end
+
+@interface FTPProxy : NSObject <PProxyProvider> @end
+@implementation FTPProxy
+-(NSString*)enabledKey  { return @"FTPEnable"; }
+-(NSString*)portKey     { return @"FTPPort"; }
+-(NSString*)hostKey     { return @"FTPProxy"; }
+-(NSString*)userKey     { return @"FTPUser"; }
+@end
+
+#pragma mark Main
+
 #import "ObjectiveSC.H"
 
 @implementation ObjectiveSC
 
-// Not exposed
++(NSString*)productName {
+    return @"ObjectiveSC";
+}
+
+#pragma mark HOST
+
++(NSString*)computerName {
+    SCDynamicStoreRef dynRef = SCDynamicStoreCreate(kCFAllocatorSystemDefault, (__bridge CFStringRef)[self productName], NULL, NULL);
+    NSString *hostname = (__bridge NSString *)SCDynamicStoreCopyLocalHostName(dynRef);
+    return hostname;
+}
+
++(NSString*)computerLocalName {
+    return [[self computerName] stringByAppendingString:@".local"];
+}
+
+#pragma mark Proxies
 
 +(NSDictionary*)proxyConfiguration {
     return (__bridge NSDictionary*)SCDynamicStoreCopyProxies(NULL);
@@ -19,52 +79,30 @@
     return [[self proxyConfiguration] objectForKey:key];
 }
 
-+(NSString*)productName {
-    return @"ScutilWrapper";
++(BOOL)checkIfProxyEnabled:(NSNumber*)enabledObj {
+    return enabledObj != NULL && [enabledObj longValue] == 1;
 }
 
-// ***
-
-#pragma mark Host
-
-+(NSString*)computerName {
-     SCDynamicStoreRef dynRef = SCDynamicStoreCreate(kCFAllocatorSystemDefault,
-                                                     (__bridge CFStringRef)[self productName],
-                                                     NULL,
-                                                     NULL);
-    NSString *hostname = (__bridge NSString *)SCDynamicStoreCopyLocalHostName(dynRef);
-    return hostname;
++(NSObject<PProxyProvider>*)getProxyProvider:(Proxy)p {
+    switch (p) {
+        case pFTP:      return [[FTPProxy   alloc] init];
+        case pHTTP:     return [[HTTPProxy  alloc] init];
+        case pHTTPS:    return [[HTTPSProxy alloc] init];
+        case pSOCKS:    return [[SOCKSProxy alloc] init];
+    }
 }
 
-+(NSString*)computerLocalName {
-    return [[self computerName] stringByAppendingString:@".local"];
++(BOOL)isProxyEnabled:(Proxy)p {
+    return [self checkIfProxyEnabled:(NSNumber*)[self objectInProxyConfiguration:[[self getProxyProvider:p] enabledKey]]];
 }
-
-#pragma mark HTTPS Proxy
-
-static NSString *httpsProxyEnabledKey   = @"HTTPSEnable";
-static NSString *httpsProxyPortKey      = @"HTTPSPort";
-static NSString *httpsProxyHostKey      = @"HTTPSProxy";
-static NSString *httpsProxyUserKey      = @"HTTPSUser";
-
-#pragma mark SOCKS Proxy
-
-static NSString *socksProxyEnabledKey   = @"SOCKSEnable";
-static NSString *socksProxyPortKey      = @"SOCKSPort";
-static NSString *socksProxyHostKey      = @"SOCKSProxy";
-
-+(BOOL)isSocksProxyEnabled {
-    NSNumber *socksEnableObj = (NSNumber*)[self objectInProxyConfiguration:socksProxyEnabledKey];
-    return socksEnableObj != NULL && [socksEnableObj integerValue] == 1;
++(long)proxyPort:(Proxy)p {
+    return [(NSNumber*)[self objectInProxyConfiguration:[[self getProxyProvider:p] portKey]] longValue];
 }
-
-+(long)socksProxyPort {
-    return [(NSNumber*)[self objectInProxyConfiguration:socksProxyPortKey] longValue];
++(NSString*)proxyHost:(Proxy)p {
+    return (NSString*)[self objectInProxyConfiguration:[[self getProxyProvider:p] hostKey]];
 }
-
-+(NSString*)socksProxyHost {
-    return (NSString*)[self objectInProxyConfiguration:socksProxyPortKey];
++(NSString*)proxyUser:(Proxy)p {
+    return (NSString*)[self objectInProxyConfiguration:[[self getProxyProvider:p] userKey]];
 }
-
 
 @end

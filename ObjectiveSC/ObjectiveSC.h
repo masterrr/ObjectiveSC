@@ -9,13 +9,16 @@
 
 @interface ObjectiveSC : NSObject
 
-// HOST
+// Host
 +(NSString*)computerName;
 +(NSString*)computerLocalName;
 
-// SOCKS
-+(BOOL)isSocksProxyEnabled;
-+(long)socksProxyPort;
-+(NSString*)socksProxyHost;
+// Proxies
+typedef enum { pHTTP, pHTTPS, pFTP, pSOCKS } Proxy;
+
++(BOOL)isProxyEnabled:  (Proxy)p;
++(long)proxyPort:       (Proxy)p;
++(NSString*)proxyHost:  (Proxy)p;
++(NSString*)proxyUser:  (Proxy)p;
 
 @end
