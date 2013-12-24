@@ -47,6 +47,22 @@
 -(NSString*)userKey     { return @"FTPUser"; }
 @end
 
+@interface GopherProxy : NSObject <PProxyProvider> @end
+@implementation GopherProxy
+-(NSString*)enabledKey  { return @"GopherEnable"; }
+-(NSString*)portKey     { return @"GopherPort"; }
+-(NSString*)hostKey     { return @"GopherProxy"; }
+-(NSString*)userKey     { return @"GophterUser"; }
+@end
+
+@interface RTSPProxy : NSObject <PProxyProvider> @end
+@implementation RTSPProxy
+-(NSString*)enabledKey  { return @"RTSPEnable"; }
+-(NSString*)portKey     { return @"RTSPPort"; }
+-(NSString*)hostKey     { return @"RTSPProxy"; }
+-(NSString*)userKey     { return @"RTSPUser"; }
+@end
+
 #pragma mark Main
 
 #import "ObjectiveSC.H"
@@ -83,12 +99,27 @@
     return enabledObj != NULL && [enabledObj longValue] == 1;
 }
 
++(NSString*)getProxyHumanName:(Proxy)proxy {
+    switch (proxy) {
+        case pFTP: return @"FTP";
+        case pHTTP: return @"HTTP";
+        case pHTTPS: return @"HTTPS";
+        case pGopher: return @"Gopher";
+        case pRTSP: return @"RTSP";
+        case pSOCKS: return @"SOCKS";
+        case ProxyCount: return @"";
+    }
+}
+
 +(NSObject<PProxyProvider>*)getProxyProvider:(Proxy)p {
     switch (p) {
-        case pFTP:      return [[FTPProxy   alloc] init];
-        case pHTTP:     return [[HTTPProxy  alloc] init];
-        case pHTTPS:    return [[HTTPSProxy alloc] init];
-        case pSOCKS:    return [[SOCKSProxy alloc] init];
+        case pFTP:          return [[FTPProxy       alloc] init];
+        case pHTTP:         return [[HTTPProxy      alloc] init];
+        case pHTTPS:        return [[HTTPSProxy     alloc] init];
+        case pSOCKS:        return [[SOCKSProxy     alloc] init];
+        case pGopher:       return [[GopherProxy    alloc] init];
+        case pRTSP:         return [[RTSPProxy      alloc] init];
+        case ProxyCount:    return NULL;
     }
 }
 
@@ -103,6 +134,21 @@
 }
 +(NSString*)proxyUser:(Proxy)p {
     return (NSString*)[self objectInProxyConfiguration:[[self getProxyProvider:p] userKey]];
+}
+
++(void)dumpProxies {
+    for (int i=0; i < ProxyCount; ++i) {
+        Proxy proxy = (Proxy)i;
+        BOOL proxyEnabled = [self isProxyEnabled:proxy];
+        NSLog(@"%@ enabled? %c", [self getProxyHumanName:proxy],
+                                 (proxyEnabled ? 'Y' : 'N'));
+        
+        if (proxyEnabled) {
+            NSLog(@"Host: %@, User: %@, Port: %ld", [self proxyHost:proxy],
+                                                    [self proxyUser:proxy],
+                                                    [self proxyPort:proxy]);
+        }
+    }
 }
 
 @end
