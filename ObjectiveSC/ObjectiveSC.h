@@ -25,7 +25,7 @@ typedef enum { pHTTP, pHTTPS, pFTP, pSOCKS, pGopher, pRTSP, ProxyCount } Proxy;
 => HTTP enabled? Y
 => Host: example.org, User: master, Port: 7000
 => HTTPS enabled? Y
-=> 20Host: localhost, User: (null), Port: 8888
+=> Host: localhost, User: (null), Port: 8888
 => FTP enabled? Y
 => Host: ftp.org, User: exampleuser, Port: 24
 => SOCKS enabled? N
