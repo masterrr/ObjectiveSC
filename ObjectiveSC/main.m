@@ -15,7 +15,7 @@ int main(int argc, const char * argv[])
     @autoreleasepool {
         NSLog(@"Computer name w/ local: %@\n\n", [ObjectiveSC computerLocalName]);
         
-        [ObjectiveSC dumpProxies];
+        NSLog(@"%@", [ObjectiveSC proxies]);
         
     }
     return 0;

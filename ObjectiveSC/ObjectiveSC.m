@@ -1,6 +1,5 @@
 //
-//  ScutilWrapper.m
-//  scutil-wrapper
+//  ObjectiveSC.m
 //
 //  Created by Dmitry Kurilo on 12/22/13.
 //
@@ -136,19 +135,24 @@
     return (NSString*)[self objectInProxyConfiguration:[[self getProxyProvider:p] userKey]];
 }
 
-+(void)dumpProxies {
++(NSArray*)proxies {
+    NSMutableArray *proxiesArr = [NSMutableArray new];
     for (int i=0; i < ProxyCount; ++i) {
         Proxy proxy = (Proxy)i;
-        BOOL proxyEnabled = [self isProxyEnabled:proxy];
-        NSLog(@"%@ enabled? %c", [self getProxyHumanName:proxy],
-                                 (proxyEnabled ? 'Y' : 'N'));
-        
-        if (proxyEnabled) {
-            NSLog(@"Host: %@, User: %@, Port: %ld", [self proxyHost:proxy],
-                                                    [self proxyUser:proxy],
-                                                    [self proxyPort:proxy]);
+        BOOL isProxyEnabled = [self isProxyEnabled:proxy];
+        if (!isProxyEnabled) {
+            [proxiesArr addObject: @{@"name":     [self getProxyHumanName:proxy],
+                                     @"enabled" : [NSNumber numberWithBool:isProxyEnabled]}];
+            continue;
         }
+        NSString *user = [self proxyUser:proxy];
+        [proxiesArr addObject: @{@"name":       [self getProxyHumanName:proxy],
+                                 @"enabled" :   [NSNumber numberWithBool:isProxyEnabled],
+                                 @"host" :      [self proxyHost:proxy],
+                                 @"user" :      user ? user : @"",
+                                 @"port":       [NSNumber numberWithLong:[self proxyPort:proxy]]}];
     }
+    return proxiesArr;
 }
 
 @end
